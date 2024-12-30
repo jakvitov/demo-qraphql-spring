@@ -5,11 +5,18 @@ type Query {
 type Book {
     id: Int
     name: String
-    author: Author
+    bookAuthor: Author
+    genre: Genre
 }
 
 type Author {
     id: Int
     name: String
     surname: String
+}
+
+enum Genre {
+    COMIC,
+    DETECTIVE
+    SCI_FI
 }
