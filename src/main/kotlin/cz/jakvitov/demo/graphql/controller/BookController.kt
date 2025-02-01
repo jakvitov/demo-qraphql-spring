@@ -24,6 +24,11 @@ class BookController {
         return bookRepository.getById(id)
     }
 
+    @QueryMapping
+    fun booksByName(@Argument name: String): List<Book> {
+        return bookRepository.getAllBooks().filter { book -> book.name == name }
+    }
+
     @SchemaMapping
     fun bookAuthor(book: Book): Author {
         return authorRepository.getAuthorById(book.authorId)
