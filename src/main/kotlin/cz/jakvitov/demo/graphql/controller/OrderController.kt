@@ -1,6 +1,5 @@
 package cz.jakvitov.demo.graphql.controller
 
-import cz.jakvitov.demo.graphql.domain.Orders
 import cz.jakvitov.demo.graphql.dto.Order
 import cz.jakvitov.demo.graphql.repository.OrdersRepository
 import org.springframework.beans.factory.annotation.Autowired

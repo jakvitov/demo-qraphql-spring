@@ -1,6 +1,6 @@
 -- Demo database
 -- Source https://www.w3schools.com/postgresql/postgresql_create_demodatabase.php
-
+-- The table is missing foreign key constraints but for our demo purposes, this doesn't matter
 
 CREATE TABLE categories (
                             category_id SERIAL NOT NULL PRIMARY KEY,
