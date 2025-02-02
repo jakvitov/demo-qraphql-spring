@@ -27,14 +27,16 @@ class OrderController {
 
     //Fetching one by one in db
     //More effective way is often to fetch for the whole list to save up IO operations to db
-    @SchemaMapping(typeName = "Order", field = "customer")
+    /*@SchemaMapping(typeName = "Order", field = "customer")
     fun getCustomerToOrder(orders: Orders): Customers? {
         return orders.customerId?.let { customersRepository.findById(it).orElse(null) }
-    }
+    }*/
 
-    @BatchMapping
+    //Fetching resources in batch saves the IO requests to DB
+    @BatchMapping(typeName = "Order", field = "customer")
     fun getCustomersToOrders(orders: List<Orders>): Map<Orders, Customers> {
-
+        val customers =  customersRepository.findAllById(orders.map { it.customerId })
+        return orders.map { order -> Pair(order, customers.first {order.customerId == it.customerId}) }.toMap()
     }
 
 
