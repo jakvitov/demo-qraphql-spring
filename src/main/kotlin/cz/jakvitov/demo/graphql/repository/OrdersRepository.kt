@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository
 interface OrdersRepository: CrudRepository<Orders, Long> {
 
     @Query("select * from Orders order by order_date desc LIMIT :limit OFFSET :offset")
-    fun getLatestOrders(limit: Int, offset: Int): Page<Orders>
+    fun getLatestOrders(limit: Int, offset: Int): List<Orders>
 
 }
