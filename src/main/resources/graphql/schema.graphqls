@@ -1,23 +1,9 @@
 type Query {
-    bookById(id: Int): Book
-    booksByName(name: String): [Book!]!
+    latestOrders(page: Int, count: Int): [Order!]!
 }
 
-type Book {
-    id: Int
-    name: String
-    bookAuthor: Author
-    genre: Genre
-}
 
-type Author {
-    id: Int
-    name: String
-    surname: String
-}
-
-enum Genre {
-    COMIC,
-    DETECTIVE
-    SCI_FI
+type Order {
+    orderId: ID,
+    orderDate: String
 }
