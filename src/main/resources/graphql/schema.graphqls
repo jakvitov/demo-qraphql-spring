@@ -4,6 +4,18 @@ type Query {
 
 
 type Order {
-    orderId: ID,
+    orderId: ID!,
     orderDate: String
+    customer: Customer
+
+}
+
+type Customer {
+    customerName: String,
+    contactName: String,
+    address: String,
+    city: String,
+    postalCode: String,
+    country: String,
+    customerId: ID!
 }
